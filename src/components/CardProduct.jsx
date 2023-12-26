@@ -6,6 +6,7 @@ import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import DialogDelete from './DialogDelete';
 import { useState } from 'react';
+import { VND } from '../util/format';
 
 
 const CardProduct = ({ product }) => {
@@ -30,6 +31,7 @@ const CardProduct = ({ product }) => {
                     <CardText className={styles.cardText}>
                         {product.description}
                     </CardText>
+                    {/* <span>{VND.format(product.price)}</span> */}
                     <Button onClick={() => { navigate(`/edit/${product.id}`) }} className={styles.btn__edit}>
                         <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faPenToSquare} />Edit
                     </Button>

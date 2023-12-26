@@ -9,7 +9,7 @@ const GridCard = ({ data }) => {
             {
                 data.map((d, index) => {
                     return (
-                        <Col xs={4} md={3} sm={6} className={styles.col} key={index}> 
+                        <Col xs={12} md={4} sm={6} xl={3} className={styles.col} key={index}> 
                             <CardProduct key={index} product={d} /> 
                         </Col>
                     )
