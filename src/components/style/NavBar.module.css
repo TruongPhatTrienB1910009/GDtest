@@ -1,0 +1,25 @@
+.container {
+    background-color: #b4123b;
+    line-height: 50px;
+}
+
+.navBar {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.link {
+    background-color: transparent;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.link:hover{
+    cursor: pointer;
+    color: red;
+}

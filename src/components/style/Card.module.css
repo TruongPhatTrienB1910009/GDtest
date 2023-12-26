@@ -1,0 +1,17 @@
+.cardText {
+    height: 100px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.btn__edit {
+    margin-right: 6px;
+}
+
+.btn__delete {
+    background-color: red !important;
+}
+
+.btn__delete:hover {
+    background-color: rgb(206, 42, 42) !important;
+}
