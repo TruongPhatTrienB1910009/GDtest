@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \" vite \" \" json-server --watch db.json \" ",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^2.0.1",
     "bootstrap": "^5.3.2",
+    "concurrently": "^8.2.2",
     "dotenv": "^16.3.1",
     "json-server": "^0.17.4",
     "react": "^18.2.0",
