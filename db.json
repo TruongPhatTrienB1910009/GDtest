@@ -62,14 +62,14 @@
       "name": "Samsung Galaxy M34 (8GB/128GB)",
       "price": 6990000,
       "description": "Galaxy M34 5G được trang bị màn hình Super AMOLED FHD+ sắc nét, mượt mà thể hiện hình ảnh chi tiết, rực rỡ. ",
-      "image": "galaxyM34.jpg"
+      "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703704232/nbqxafz5yk4ingde8uvm.jpg"
     },
     {
       "code": "iphone",
-      "name": "test",
+      "name": "test 2",
       "price": 200000,
-      "description": "test",
-      "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703691157/jfhojahha2duutif76gg.jpg",
+      "description": "test 2",
+      "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703704194/kmypkfy4smatzbdfua94.jpg",
       "id": 9
     }
   ]
