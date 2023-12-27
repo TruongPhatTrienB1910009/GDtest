@@ -9,23 +9,15 @@ import Edit from "./pages/Edit"
 import Error from './pages/Error'
 import Login from "./pages/Login"
 import Home from "./pages/Home"
-import { useEffect, useState } from "react"
 import ProtectedRoute from "./components/ProtectedRoute"
-import { useSelector, useDispatch } from "react-redux"
 
 
 function App() {
-  const isLogin = useSelector((state) => state.auth.login);
-
-  useEffect(() => {
-    console.log("isLogin", isLogin);
-  }, [isLogin]);
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route element={<ProtectedRoute isLogin={isLogin} />} >
+          <Route element={<ProtectedRoute />} >
             <Route index element={<Home />} />
             <Route path="/add" element={<Add />} />
             <Route path="/edit/:id" element={<Edit />} />

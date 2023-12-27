@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux"
 const BtnLogout = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
+    localStorage.removeItem("isLogin")
     dispatch(logout());
   }
 

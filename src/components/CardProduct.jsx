@@ -11,7 +11,23 @@ import { VND } from '../util/format';
 
 const CardProduct = ({ product }) => {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const handleDeleteProduct = async () => {
+        try {
+            const response = await fetch(
+                `http://localhost:3000/products/${product.id}`,
+                {
+                  method: "DELETE",
+                  body: {},
+                }
+              )
+              const res = await response.json();
+              setOpen(false);
+              alert("Success", res)
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <>
             <Card
@@ -22,7 +38,7 @@ const CardProduct = ({ product }) => {
             >
                 <img
                     alt="Sample"
-                    src={`/images/${product.image}`}
+                    src={product.image}
                 />
                 <CardBody>
                     <CardTitle style={{ fontSize: '18px', fontWeight: '600', height: '50px' }}>
@@ -40,7 +56,7 @@ const CardProduct = ({ product }) => {
                     </Button>
                 </CardBody>
             </Card>
-            <DialogDelete open={open} setOpen={setOpen}/>
+            <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen}/>
         </>
     )
 }

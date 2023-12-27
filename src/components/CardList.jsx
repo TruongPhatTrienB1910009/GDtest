@@ -15,7 +15,7 @@ const CardList = ({ product }) => {
     const [open, setOpen] = useState(false);
     return (
         <div className={styles.card}>
-            <div className={styles.cardImg}><img src={`/images/${product.image}`} alt="" /></div>
+            <div className={styles.cardImg}><img src={product.image} alt="" /></div>
             <div className={styles.cardBody}>
                 <div className={styles.cardContent}>
                     {product.description}

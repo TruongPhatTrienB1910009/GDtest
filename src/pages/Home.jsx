@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import data from "../data/index.json"
+import data from "../../db.json"
 import GridCard from '../components/GridCard'
 import BtnSwitch from '../components/BtnSwitch'
 import ListCard from '../components/ListCard'
@@ -11,9 +11,9 @@ const Home = () => {
       <BtnSwitch type={type} setType={setType} />
       {
         (type == 0) ? (
-          <GridCard data={data}/>
+          <GridCard data={data.products}/>
         ) : (
-          <ListCard data={data} />
+          <ListCard data={data.products} />
         )
       }
     </div>

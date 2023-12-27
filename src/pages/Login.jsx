@@ -2,14 +2,34 @@ import React, { useEffect, useState } from 'react'
 import styles from "./style/Login.module.css";
 import { useSelector, useDispatch } from "react-redux"
 import { validateForm } from '../util/auth'
-import pass from "../data/pass.json"
 import { login } from "../redux/features/auth-slice";
 import { useNavigate } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 const Login = () => {
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const [email, setEmail] = useState("phattrientruong15062001@gmail.com");
+    const [password, setPassword] = useState("12345");
+
+    const handleChangeEmail = (e) => {
+        try {
+            setEmail(e.target.value);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleChangePassword = (e) => {
+        try {
+            setPassword(e.target.value);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     const checkValue = (data) => {
         const error = validateForm(data);
@@ -34,9 +54,10 @@ const Login = () => {
             if (!isCheckValue) {
                 console.log(errors);
             } else {
-                if (pass.email == data.email) {
-                    if (pass.password == data.password) {
+                if (data.email == "phattrientruong15062001@gmail.com") {
+                    if (data.password == "12345") {
                         dispatch(login());
+                        localStorage.setItem("isLogin", true);
                         navigate("/");
                     } else {
                         alert("wrong password")
@@ -62,7 +83,7 @@ const Login = () => {
                     <div className={styles.formGroup}>
                         <div className={styles.formGroupInput}>
                             <label htmlFor="email">Email</label>
-                            <input placeholder='Your Email' name='email' type="text" />
+                            <input onChange={handleChangeEmail} value={email} placeholder='Your Email' name='email' type="text" />
                         </div>
                         <div className={styles.formGroupError}>
                             <label htmlFor=""></label>
@@ -72,7 +93,7 @@ const Login = () => {
                     <div className={styles.formGroup}>
                         <div className={styles.formGroupInput}>
                             <label htmlFor="password">Password</label>
-                            <input placeholder='Your Password' name='password' type="password" />
+                            <input onChange={handleChangePassword} value={password} placeholder='Your Password' name='password' type="password" />
                         </div>
                         <div className={styles.formGroupError}>
                             <label htmlFor=""></label>

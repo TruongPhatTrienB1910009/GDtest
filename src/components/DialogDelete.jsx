@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-function DialogDelete({ open, setOpen }) {
+function DialogDelete({ open, setOpen, handleDeleteProduct }) {
     const toggle = () => setOpen(!open);
 
     return (
@@ -9,7 +9,7 @@ function DialogDelete({ open, setOpen }) {
             <Modal isOpen={open} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Do you want to delete this product?</ModalHeader>
                 <ModalFooter>
-                    <Button color="primary" onClick={toggle}>
+                    <Button color="primary" onClick={() => {handleDeleteProduct()}}>
                         Yes
                     </Button>{' '}
                     <Button color="secondary" onClick={toggle}>
