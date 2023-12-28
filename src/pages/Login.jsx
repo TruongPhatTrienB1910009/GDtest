@@ -55,6 +55,7 @@ const Login = () => {
 
             if (!isCheckValue) {
                 console.log(errors);
+                // setErrors(errors);
             } else {
                 if (data.email == "phattrientruong15062001@gmail.com") {
                     if (data.password == "12345") {
@@ -62,10 +63,10 @@ const Login = () => {
                         localStorage.setItem("isLogin", true);
                         navigate("/");
                     } else {
-                        alert("wrong password")
+                        // alert("wrong password")
                     }
                 } else {
-                    alert("wrong email")
+                    // alert("wrong email")
                 }
             }
         } catch (error) {

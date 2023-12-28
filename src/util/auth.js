@@ -4,9 +4,11 @@ export const validateForm = (data) => {
 
     console.log(data)
 
-    if (data.email && data.email=='') {
+    console.log(data.email == '')
+
+    if (data.email && data.email == '') {
         error.email = 'Email cannot be empty';
-    } else if (data.email && !emailRegex.test(data.email)) {
+    } else if (data.email && data.email != '' && !emailRegex.test(data.email)) {
         error.email = 'Email format is wrong'
     }
 
@@ -21,8 +23,6 @@ export const validateForm = (data) => {
     if(data.name=='') {
         error.name = 'Name cannot be empty';
     }
-
-    console.log(data.price == 0)
 
     if (data.price <= 0) {
         error.price = 'Price must be greater than zero';
