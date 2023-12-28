@@ -13,6 +13,21 @@ import stylesBtn from "./style/Card.module.css";
 const CardList = ({ product }) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
+    const handleDeleteProduct = async () => {
+        try {
+            const response = await fetch(
+                `https://mock-flzy.onrender.com/products/${product.id}`,
+                {
+                  method: "DELETE",
+                  body: {},
+                }
+              )
+              const res = await response.json();
+              setOpen(false);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div className={styles.card}>
             <div className={styles.cardImg}><img src={product.image} alt="" /></div>
@@ -32,7 +47,7 @@ const CardList = ({ product }) => {
                     </div>
                 </div>
             </div>
-            <DialogDelete open={open} setOpen={setOpen}/>
+            <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen}/>
         </div>
     )
 }

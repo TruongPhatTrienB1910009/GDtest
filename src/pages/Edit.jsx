@@ -84,7 +84,7 @@ const Edit = () => {
       }
 
       const response = await fetch(
-        `http://localhost:3000/products/${id}`,
+        `https://mock-flzy.onrender.com/products/${id}`,
         {
           method: "PATCH",
           body: JSON.stringify(data),

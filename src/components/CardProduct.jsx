@@ -15,7 +15,7 @@ const CardProduct = ({ product }) => {
     const handleDeleteProduct = async () => {
         try {
             const response = await fetch(
-                `http://localhost:3000/products/${product.id}`,
+                `https://mock-flzy.onrender.com/products/${product.id}`,
                 {
                   method: "DELETE",
                   body: {},

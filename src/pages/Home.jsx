@@ -9,7 +9,7 @@ const Home = () => {
   const handleGetProducts = async () => {
     try {
       const res = await fetch(
-        "http://localhost:3000/products",
+        "https://mock-flzy.onrender.com/products",
         {
           method: 'GET',
         }

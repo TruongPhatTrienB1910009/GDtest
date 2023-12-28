@@ -40,7 +40,7 @@ const Add = () => {
         }
 
         const response = await fetch(
-          "http://localhost:3000/products",
+          "https://mock-flzy.onrender.com/products",
           {
             method: "POST",
             body: JSON.stringify(data),
