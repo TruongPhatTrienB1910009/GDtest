@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import DialogDelete from './DialogDelete';
 import { useState } from 'react';
 import { VND } from '../util/format';
+import toast from 'react-hot-toast';
 
 
 const CardProduct = ({ product, handleGetProducts }) => {
@@ -17,15 +18,17 @@ const CardProduct = ({ product, handleGetProducts }) => {
             const response = await fetch(
                 `https://mock-flzy.onrender.com/products/${product.id}`,
                 {
-                  method: "DELETE",
-                  body: {},
+                    method: "DELETE",
+                    body: {},
                 }
-              )
-              const res = await response.json();
-              setOpen(false);
-              handleGetProducts();
+            )
+            const res = await response.json();
+            setOpen(false);
+            toast.success("Delete Successfully");
+            handleGetProducts();
         } catch (error) {
             console.log(error);
+            toast.error(error.message);
         }
     }
     return (
@@ -49,16 +52,16 @@ const CardProduct = ({ product, handleGetProducts }) => {
                     </CardText>
                     <span className={styles.price}>{VND.format(product.price)}</span>
                     <div>
-                    <Button onClick={() => { navigate(`/edit/${product.id}`) }} className={styles.btn__edit}>
-                        <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faPenToSquare} />Edit
-                    </Button>
-                    <Button onClick={() => {setOpen(true)}} className={styles.btn__delete}>
-                        <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faTrash} />Delete
-                    </Button>
+                        <Button onClick={() => { navigate(`/edit/${product.id}`) }} className={styles.btn__edit}>
+                            <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faPenToSquare} />Edit
+                        </Button>
+                        <Button onClick={() => { setOpen(true) }} className={styles.btn__delete}>
+                            <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faTrash} />Delete
+                        </Button>
                     </div>
                 </CardBody>
             </Card>
-            <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen}/>
+            <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen} />
         </>
     )
 }

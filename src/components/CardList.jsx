@@ -8,6 +8,8 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import stylesBtn from "./style/Card.module.css";
+import toast from 'react-hot-toast';
+
 
 
 const CardList = ({ product, handleGetProducts }) => {
@@ -18,15 +20,17 @@ const CardList = ({ product, handleGetProducts }) => {
             const response = await fetch(
                 `https://mock-flzy.onrender.com/products/${product.id}`,
                 {
-                  method: "DELETE",
-                  body: {},
+                    method: "DELETE",
+                    body: {},
                 }
-              )
-              const res = await response.json();
-              setOpen(false);
-              handleGetProducts();
+            )
+            const res = await response.json();
+            setOpen(false);
+            toast.success("Delete Successfully");
+            handleGetProducts();
         } catch (error) {
             console.log(error);
+            toast.error(error.message);
         }
     }
     return (
@@ -48,7 +52,7 @@ const CardList = ({ product, handleGetProducts }) => {
                     </div>
                 </div>
             </div>
-            <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen}/>
+            <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen} />
         </div>
     )
 }

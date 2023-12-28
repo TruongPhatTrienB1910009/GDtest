@@ -4,6 +4,8 @@ import stylesAdd from './style/Add.module.css'
 import Upload from '../components/Upload'
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
+import toast  from 'react-hot-toast';
+import { validateForm } from '../util/auth';
 
 const Edit = () => {
   const [errors, setErrors] = useState({});
@@ -19,6 +21,16 @@ const Edit = () => {
       setProduct(data);
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  const checkValue = (data) => {
+    const error = validateForm(data);
+    if (Object.keys(error).length == 0) {
+      return true;
+    } else {
+      setErrors(error);
+      return false;
     }
   }
 
@@ -83,21 +95,29 @@ const Edit = () => {
         data.image = imgData.url;
       }
 
-      const response = await fetch(
-        `https://mock-flzy.onrender.com/products/${id}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(data),
-          headers: { "Content-Type": "application/json" },
-        }
-      )
-      const res = await response.json();
-      if (res) {
+      const isCheckValue = checkValue(data);
+
+      if(!isCheckValue) {
+        console.log(errors);
         setIsLoading(false);
+      } else {
+        const response = await fetch(
+          `https://mock-flzy.onrender.com/products/${id}`,
+          {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" },
+          }
+        )
+        const res = await response.json();
+        if (res) {
+          setIsLoading(false);
+        }
+        toast.success("Edit Successfully");
       }
-      alert("Success", res)
     } catch (error) {
       console.log(error)
+      toast.error(error.message);
     }
   }
 
@@ -116,7 +136,7 @@ const Edit = () => {
                 <div className={styles.formGroup}>
                   <div className={styles.formGroupInput}>
                     <label htmlFor="code">Code</label>
-                    <input onChange={handleChangeCode} value={product.code} placeholder='Code' name='code' type="text" />
+                    <input className={styles.input} onChange={handleChangeCode} value={product.code} placeholder='Code' name='code' type="text" />
                   </div>
                   <div className={styles.formGroupError}>
                     <label htmlFor=""></label>
@@ -126,7 +146,7 @@ const Edit = () => {
                 <div className={styles.formGroup}>
                   <div className={styles.formGroupInput}>
                     <label htmlFor="name">Name</label>
-                    <input onChange={handleChangeName} value={product.name} placeholder='Name Product' name='name' type="text" />
+                    <input className={styles.input} onChange={handleChangeName} value={product.name} placeholder='Name Product' name='name' type="text" />
                   </div>
                   <div className={styles.formGroupError}>
                     <label htmlFor=""></label>
@@ -136,7 +156,7 @@ const Edit = () => {
                 <div className={styles.formGroup}>
                   <div className={styles.formGroupInput}>
                     <label htmlFor="price">Price</label>
-                    <input onChange={handleChangePrice} value={product.price} placeholder='Price' name='price' type="number" />
+                    <input className={styles.input} onChange={handleChangePrice} value={product.price} placeholder='Price' name='price' type="number" />
                   </div>
                   <div className={styles.formGroupError}>
                     <label htmlFor=""></label>
