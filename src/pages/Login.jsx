@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from "react-redux"
 import { validateForm } from '../util/auth'
 import { login } from "../redux/features/auth-slice";
 import { useNavigate } from 'react-router-dom';
-import Loading from '../components/Loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 const Login = () => {
     const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -83,7 +85,7 @@ const Login = () => {
                     <div className={styles.formGroup}>
                         <div className={styles.formGroupInput}>
                             <label htmlFor="email">Email</label>
-                            <input onChange={handleChangeEmail} value={email} placeholder='Your Email' name='email' type="text" />
+                            <input className={styles.input} onChange={handleChangeEmail} value={email} placeholder='Your Email' name='email' type="text" />
                         </div>
                         <div className={styles.formGroupError}>
                             <label htmlFor=""></label>
@@ -93,7 +95,16 @@ const Login = () => {
                     <div className={styles.formGroup}>
                         <div className={styles.formGroupInput}>
                             <label htmlFor="password">Password</label>
-                            <input onChange={handleChangePassword} value={password} placeholder='Your Password' name='password' type="password" />
+                            <div className={styles.inputBox}>
+                                <input onChange={handleChangePassword} value={password} placeholder='Your Password' name='password' type={(showPassword) ? 'text' : 'password'} />
+                                {
+                                    (!showPassword) ? (
+                                        <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} className={styles.eye} icon={faEyeSlash} />
+                                    ) : (
+                                        <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} className={styles.eye} icon={faEye} />
+                                    )
+                                }
+                            </div>
                         </div>
                         <div className={styles.formGroupError}>
                             <label htmlFor=""></label>

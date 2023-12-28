@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { VND } from '../util/format';
 
 
-const CardProduct = ({ product }) => {
+const CardProduct = ({ product, handleGetProducts }) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const handleDeleteProduct = async () => {
@@ -23,7 +23,7 @@ const CardProduct = ({ product }) => {
               )
               const res = await response.json();
               setOpen(false);
-              alert("Success", res)
+              handleGetProducts();
         } catch (error) {
             console.log(error);
         }
@@ -47,13 +47,15 @@ const CardProduct = ({ product }) => {
                     <CardText className={styles.cardText}>
                         {product.description}
                     </CardText>
-                    {/* <span>{VND.format(product.price)}</span> */}
+                    <span className={styles.price}>{VND.format(product.price)}</span>
+                    <div>
                     <Button onClick={() => { navigate(`/edit/${product.id}`) }} className={styles.btn__edit}>
                         <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faPenToSquare} />Edit
                     </Button>
                     <Button onClick={() => {setOpen(true)}} className={styles.btn__delete}>
                         <FontAwesomeIcon style={{ marginRight: '6px' }} icon={faTrash} />Delete
                     </Button>
+                    </div>
                 </CardBody>
             </Card>
             <DialogDelete handleDeleteProduct={handleDeleteProduct} open={open} setOpen={setOpen}/>

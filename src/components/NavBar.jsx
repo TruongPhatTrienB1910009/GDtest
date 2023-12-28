@@ -10,7 +10,8 @@ const NavBar = () => {
                     to="/"
                     className={styles.link}
                 >
-                    <FontAwesomeIcon icon={faHouse} style={{marginRight: '6px'}}/>Home
+                    {/* <FontAwesomeIcon icon={faHouse} style={{marginRight: '6px'}}/>Home */}
+                    SELL PHONE
                 </NavLink>
             </nav>
         </div>

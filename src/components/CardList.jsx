@@ -10,7 +10,7 @@ import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import stylesBtn from "./style/Card.module.css";
 
 
-const CardList = ({ product }) => {
+const CardList = ({ product, handleGetProducts }) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const handleDeleteProduct = async () => {
@@ -24,6 +24,7 @@ const CardList = ({ product }) => {
               )
               const res = await response.json();
               setOpen(false);
+              handleGetProducts();
         } catch (error) {
             console.log(error);
         }

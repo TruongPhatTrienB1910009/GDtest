@@ -34,10 +34,10 @@ const Home = () => {
             <BtnSwitch type={type} setType={setType} />
             {
               (type == 0) ? (
-                <GridCard data={data} />
+                <GridCard handleGetProducts={handleGetProducts} data={data} />
               ) : (
-                <ListCard data={data} />
-              )
+                <ListCard handleGetProducts={handleGetProducts} data={data} />
+              ) 
             }
           </>
         ) : ('')

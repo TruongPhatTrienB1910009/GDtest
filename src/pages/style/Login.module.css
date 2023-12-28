@@ -59,7 +59,22 @@
     background-color: #b4123b;
 }
 
-.formGroupInput input {
+.formGroupInput .inputBox {
+    flex: 4;
+    line-height: 36px;
+    outline: none;
+    padding: 2px 5px;
+    background-color: #fff;
+    font-size: 16px;
+    border-left: none;
+}
+
+.formGroupInput .inputBox input {
+    outline: none;
+    width: 90%;
+}
+
+.formGroupInput .input {
     flex: 4;
     line-height: 36px;
     outline: none;
@@ -86,4 +101,9 @@
 
 img {
     margin-bottom: 8px;
+}
+
+.eye:hover {
+    cursor: pointer;
+    transition: all 0.3s ease;
 }

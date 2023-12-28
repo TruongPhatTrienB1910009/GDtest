@@ -3,11 +3,13 @@ import styles from './style/Login.module.css'
 import stylesAdd from './style/Add.module.css'
 import Upload from '../components/Upload'
 import Loading from '../components/Loading'
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
   const [errors, setErrors] = useState({});
   const [images, setImages] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleAddProduct = async (e) => {
     try {
@@ -52,6 +54,7 @@ const Add = () => {
           setIsLoading(false);
         }
         alert("Success", res)
+        navigate('/')
       } catch (error) {
         console.log(error)
       }
