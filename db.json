@@ -52,25 +52,17 @@
       "id": 7,
       "code": "SSF946/256GBLU",
       "name": "Samsung Galaxy Z Fold5",
-      "price": 33990000,
+      "price": 35989997,
       "description": "Samsung Galaxy Z Fold 5 đặt ra quy chuẩn mới cho thiết kế gập tiên tiến, vượt qua mọi giới hạn để mang tới sản phẩm vừa đảm bảo tính thẩm mỹ, vừa bền bỉ cho người dùng.",
       "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703702283/bj0sjlkexhmtydcpedwb.jpg"
     },
     {
-      "id": 8,
-      "code": "SSM346B1DBLU",
-      "name": "Samsung Galaxy M34 (8GB/128GB)",
-      "price": 6990000,
-      "description": "Galaxy M34 5G được trang bị màn hình Super AMOLED FHD+ sắc nét, mượt mà thể hiện hình ảnh chi tiết, rực rỡ. ",
-      "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703704232/nbqxafz5yk4ingde8uvm.jpg"
-    },
-    {
       "code": "iphone",
-      "name": "test 2",
-      "price": 200000,
-      "description": "test 2",
-      "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703704194/kmypkfy4smatzbdfua94.jpg",
-      "id": 9
+      "name": "test",
+      "price": 1000000,
+      "description": "test",
+      "image": "http://res.cloudinary.com/dpur9xqc7/image/upload/v1703737823/fjo6umarnnedeknskhhp.jpg",
+      "id": 8
     }
   ]
 }
