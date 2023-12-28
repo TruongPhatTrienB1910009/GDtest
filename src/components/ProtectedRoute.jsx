@@ -1,4 +1,3 @@
-import { Navigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import BtnLogout from "./BtnLogout.jsx";
 import BtnAdd from "./BtnAdd.jsx";
@@ -6,7 +5,7 @@ import BtnAdd from "./BtnAdd.jsx";
 const ProtectedRoute = () => {
 
     return (
-        <div>
+        <div style={{padding: '0 4px'}}>
             <BtnAdd />
             <BtnLogout />
             <Outlet />

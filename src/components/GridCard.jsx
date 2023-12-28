@@ -5,18 +5,20 @@ import styles from "./style/GridCard.module.css";
 
 const GridCard = ({ data, handleGetProducts }) => {
     return (
-        <Row>
-            {
-                data.map((d, index) => {
-                    return (
-                        <Col xs={12} md={4} sm={6} xl={3} className={styles.col} key={index}> 
-                            <CardProduct handleGetProducts={handleGetProducts} key={index} product={d} /> 
-                        </Col>
-                    )
-                })
-            }
+        <div style={{overflow: 'hidden'}}>
+            <Row>
+                {
+                    data.map((d, index) => {
+                        return (
+                            <Col xs={12} md={4} sm={6} xl={3} className={styles.col} key={index}>
+                                <CardProduct handleGetProducts={handleGetProducts} key={index} product={d} />
+                            </Col>
+                        )
+                    })
+                }
 
-        </Row>
+            </Row>
+        </div>
     )
 }
 

@@ -16,7 +16,7 @@ const Edit = () => {
 
   const handleGetProduct = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/products/${id}`);
+      const res = await fetch(`https://mock-flzy.onrender.com/products/${id}`);
       const data = await res.json();
       setProduct(data);
     } catch (error) {

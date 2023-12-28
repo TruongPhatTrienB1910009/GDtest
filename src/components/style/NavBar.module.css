@@ -1,6 +1,7 @@
 .container {
     background-color: #b4123b;
     line-height: 50px;
+    overflow: hidden;
 }
 
 .navBar {
