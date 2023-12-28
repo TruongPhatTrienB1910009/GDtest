@@ -4,9 +4,9 @@ export const validateForm = (data) => {
 
     console.log(data)
 
-    if (data.email=='') {
+    if (data.email && data.email=='') {
         error.email = 'Email cannot be empty';
-    } else if (!emailRegex.test(data.email)) {
+    } else if (data.email && !emailRegex.test(data.email)) {
         error.email = 'Email format is wrong'
     }
 
